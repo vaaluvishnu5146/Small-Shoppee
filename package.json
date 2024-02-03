@@ -1,0 +1,21 @@
+{
+  "name": "smallshoppee",
+  "version": "1.0.0",
+  "description": "Small shopee is an mini ecommerce website for small business to create an online store for seeling their products and getting orders and payments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "server": "node index.js"
+  },
+  "author": "VISHNU",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1",
+    "nodemon": "^3.0.3"
+  }
+}
