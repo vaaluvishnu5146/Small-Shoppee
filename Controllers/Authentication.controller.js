@@ -1,5 +1,6 @@
 const { Types } = require("mongoose");
 const AuthModel = require("../Models/Authentication.model");
+const jwt = require("jsonwebtoken");
 
 function createUser(req, res, next) {
   const User = new AuthModel(req.body);
@@ -47,9 +48,20 @@ function signInUser(req, res, next) {
     .then((response) => {
       if (response && response._id) {
         if (password === response.password) {
+          const token = jwt.sign(
+            {
+              roles: response.roles,
+              uid: response._id,
+            },
+            "SMALL_SHOPPEE_APPLICATION_SECRET",
+            {
+              expiresIn: "1h",
+            }
+          );
           return res.status(200).json({
             success: true,
             message: "Sign In successful",
+            token: token,
           });
         } else {
           return res.status(200).json({

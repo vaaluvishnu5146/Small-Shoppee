@@ -28,10 +28,15 @@ const AuthSchema = mongoose.Schema({
   profilePicture: {
     type: String,
     required: false,
+    default: "",
   },
   isKYCCompleted: {
     type: Boolean,
     default: false,
+  },
+  roles: {
+    type: Array,
+    default: ["A"],
   },
 });
 
